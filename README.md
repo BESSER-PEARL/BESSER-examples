@@ -1,24 +1,29 @@
-# Template for BESSER-PEARL Organization Repositories
+# BESSER Examples
 
-This Github template provides a collection of base files and configuration recommendations for kick-starting a new project in the BESSER-PEARL organization.
+Welcome to the [BESSER](https://github.com/BESSER-PEARL/BESSER) examples repository! This collection shows a variety of scenarios 
+implemented with BESSER, our low-modeling low-code open-source platform. These examples show the different ways to create a model 
+in BESSER and the use of the different code generators. Feel free to explore these examples to gain insights into building and 
+implementing your own domains with BESSER.
 
-## ⚒️ Using this template for your project
+### Requirements
 
-To use this template when creating a new repository in the BESSER-PEARL GitHub organization, you have to set the `Repository template` field to `BESSER-PEARL/template`.
+- Python 3.9 or later.
+- Recommended: Create a virtual environment
+  (e.g. [venv](https://docs.python.org/3/library/venv.html),
+  [conda](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html))
+- Install the [besser package](https://github.com/BESSER-PEARL/BESSER):
 
-The new repository will use this one as a template, meaning that it will contain all the files. 
-Once the new repository is created, you can edit its files to adapt them to your needs.
+```bash
+pip install besser
+```
 
-## ☑️ Guidelines & Contributing
+### Getting Started
+ 
+To run the example or contribute your own, follow the instructions provided within each example's folder. These instructions will 
+guide you through the setup, configuration, and execution of the BESSER model.
 
-You will find a guided description of the steps you should follow in the [guidelines](guidelines.md) file.
+### Contributions
 
-## 📓 Publishing the documentation to ReadTheDocs
-
-This template also provides the base files to deploy the repository documentation using [ReadTheDocs](https://docs.readthedocs.io/en/stable/index.html). In the `docs` folder you can find and edit all the Sphinx documentation sources. You can check the documentation generated from this template at the [following link](https://besser-template.readthedocs.io/en/latest/). 
-
-For more information on how to connect your repository, customize, and deploy the documentation with ReadTheDocs, you can follow [this tutorial](https://docs.readthedocs.io/en/stable/tutorial/index.html). If you do not plan to use ReadTheDocs, remove the `docs` folder and the `.readthedocs.yaml` file from your repository.
-
-## 📚 References
-
-This project is an extended and adapted version (to the [BESSER-PEARL organization](https://github.com/organizations/BESSER-PEARL/)) of the [GitHub Best Practices Template](https://github.com/jlcanovas/gh-best-practices-template.git)
+We encourage contributions from the community! If you've implemented an interesting scenario or domain using BESSER, or have improvements 
+to existing ones, please consider creating a pull request. Together, we can expand the library of examples to help others learn and build 
+amazing BESSER models.
