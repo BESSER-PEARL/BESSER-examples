@@ -1,5 +1,5 @@
 # Library Example
 
-En este ejemplo básico, vamos a modelar el dominio de Libreria representado en el siguiente diagrama de clases.
+In this basic example, we are going to model the Library domain represented in the following class diagram.
 
-![image](https://github.com/BESSER-PEARL/BESSER-examples/blob/main/examples/library/library_class_diagram.jpg)
+<img src="/examples/library/library_class_diagram.jpg" alt="WWTP" style="height: 70%; width:70%;"/>
