@@ -1,2 +1,3 @@
-# Sphinx documentation
-docs/_build/
+# pipenv
+Pipfile
+Pipfile.lock
