@@ -43,10 +43,6 @@ book_author_association: BinaryAssociation = BinaryAssociation(name="book_author
 library_model : DomainModel = DomainModel(name="Library model", types={library, book, author}, 
                                           associations={lib_book_association, book_author_association})
 
-# Getting the attributes of the Book class
-for attribute in book.attributes:
-    print (attribute.name)
-
 # Code Generation
 python_model = Python_Generator(model=library_model)
 python_model.generate()
