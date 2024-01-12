@@ -29,7 +29,7 @@ You will get the generated code in the `output/` folder. Additionally, the sourc
 
 ### 3. Build the B-UML model from an image and run the code generators
 
-In `image2buml.py` you can check the code to transform the image `library_hand_draw.png` to a B-UML model. For this we use OpenAI's GPT4, so you must provide an OpenAI token to implement this BESSER functionality. Update the `opneai_token` parameter of the `image_to_buml` function and execute the code.
+In `image2buml.py` you can check the code to transform the image `library_hand_draw.png` to a B-UML model. For this we use [OpenAI's GPT4](https://openai.com/gpt-4), so you must provide an OpenAI token to implement this BESSER functionality. Update the `opneai_token` parameter of the `image_to_buml` function and execute the code.
 
 ```sh
 python image2buml.py
