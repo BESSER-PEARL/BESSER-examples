@@ -18,7 +18,7 @@ python dpp.py
 
 The generated code for the model layer of the Django application will be stored in the `output/models.py` file. Additionally, the code to define the B-UML model is generated in `buml/buml_model` (this code can be used if you want to modify your model directly from the base code).
 
-Now you can create your Django application using the generated code. The following is the admin panel of the web application using the generated code.
+Now you can create your Django application and use the generated code. Below is the admin panel of a Django web application that uses the code generated for the data layer or model layer.
 
 <p align="center">
 <img src="/examples/dpp/django.png" alt="Django App" style="height: 70%; width:70%;"/>
