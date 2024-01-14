@@ -6,7 +6,9 @@ In this example, we show how from a [plantUML](https://plantuml.com/class-diagra
 
 The PlantUML class model that describes the domain is as follows (you can find the code in `dpp.plantuml` file).
 
+<p align="center">
 <img src="/examples/dpp/dpp_model.png" alt="WWTP" style="height: 70%; width:70%;"/>
+</p>
 
 Run the script `dpp.py`.
 
@@ -18,4 +20,6 @@ The generated code for the model layer of the Django application will be stored 
 
 Now you can create your Django application using the generated code. The following is the admin panel of the web application using the generated code.
 
+<p align="center">
 <img src="/examples/dpp/django.png" alt="Django App" style="height: 70%; width:70%;"/>
+</p>
