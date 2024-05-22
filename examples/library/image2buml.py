@@ -1,9 +1,9 @@
-from BUML.metamodel.structural import DomainModel
-from utilities import image_to_plantuml, image_to_buml
-from generators.python_classes import Python_Generator
-from generators.django import DjangoGenerator
-from generators.sql_alchemy import SQLAlchemyGenerator
-from generators.sql import SQLGenerator
+from besser.BUML.metamodel.structural import DomainModel
+from besser.utilities import image_to_plantuml, image_to_buml
+from besser.generators.python_classes.python_classes_generator import PythonGenerator
+from besser.generators.django import DjangoGenerator
+from besser.generators.sql_alchemy import SQLAlchemyGenerator
+from besser.generators.sql import SQLGenerator
 
 # Image to BUML model
 library_model: DomainModel = image_to_buml(image_path="library_hand_draw.png", openai_token="xxxxx")
