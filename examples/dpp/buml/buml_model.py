@@ -4,8 +4,8 @@ from BUML.metamodel.structural import NamedElement, DomainModel, Type, Class, \
 
 # Primitive Data Types 
 int_type = PrimitiveDataType("int")
-str_type = PrimitiveDataType("str")
 date_type = PrimitiveDataType("date")
+str_type = PrimitiveDataType("str")
 
 # ProductPassport class definition 
 ProductPassport_code: Property = Property(name="code", property_type=str_type, visibility="public")
