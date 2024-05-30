@@ -70,6 +70,7 @@ resource "kubernetes_deployment_v1" "default-" {
       }
     }
   }
+depends_on = [google_project_service.compute]
 }
 
 resource "kubernetes_service_v1" "default-1" {

@@ -93,48 +93,48 @@ resource "kubernetes_deployment_v1" "default-" {
               requests = {
                 cpu    = "10m"
                 memory = "100Mi"
-              }              }
+              }
+            }
           }
         }
       }
     }
-  # depends_on = ["aws_eks_node_group.private-nodes]
+    depends_on = ["aws_eks_node_group.private-nodes"]
   }
 
-  resource "kubernetes_service_v1" "default-1" {
-    metadata {
-      name = "service1"
-  #    namespace = kubernetes_namespace.app_namespace.metadata[0].name
-    }
-    spec {
-      selector = {
-        app = "app1"
-      }
-      port {
-        protocol    = "TCP"
-        port        = 80
-        target_port = 8000
-      }
-      type = "LoadBalancer"
-    }
+resource "kubernetes_service_v1" "default-1" {
+  metadata {
+    name = "service1"
+#    namespace = kubernetes_namespace.app_namespace.metadata[0].name
   }
-
-  resource "kubernetes_ingress_v1" "example" {
-    wait_for_load_balancer = true
-    metadata {
-      name = "example"
+  spec {
+    selector = {
+      app = "app1"
     }
-    spec {
-      rule {
-        http {
-          path {
-            path = "/*"
-            backend {
-              service {
-                name = kubernetes_service_v1.default-1.metadata.0.name
-                port {
-                  number = 80
-                }
+    port {
+      protocol    = "TCP"
+      port        = 80
+      target_port = 8000
+    }
+    type = "LoadBalancer"
+  }
+}
+
+resource "kubernetes_ingress_v1" "example" {
+  wait_for_load_balancer = true
+  metadata {
+    name = "example"
+  }
+  spec {
+    rule {
+      http {
+        path {
+          path = "/*"
+          backend {
+            service {
+              name = kubernetes_service_v1.default-1.metadata.0.name
+              port {
+                number = 80
               }
             }
           }
@@ -142,3 +142,4 @@ resource "kubernetes_deployment_v1" "default-" {
       }
     }
   }
+}

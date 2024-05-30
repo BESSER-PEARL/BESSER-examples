@@ -66,8 +66,5 @@ resource "google_container_cluster" "default" {
     deletion_protection = false
   }
 
-output "load_balancer_ip" {
-  value = kubernetes_service_v1.default-1.status.0.load_balancer.0.ingress.0.ip
-}
 
 # [END gke_quickstart_autopilot_cluster]
