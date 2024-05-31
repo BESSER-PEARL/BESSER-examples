@@ -23,7 +23,7 @@ resource "aws_iam_role" "demo" {
   }
   
   variable "cluster_name" {
-    default = "demo"
+    default = "cluster2"
     type = string
     description = "AWS EKS CLuster Name"
     nullable = false
@@ -120,26 +120,3 @@ resource "kubernetes_service_v1" "default-1" {
   }
 }
 
-resource "kubernetes_ingress_v1" "example" {
-  wait_for_load_balancer = true
-  metadata {
-    name = "example"
-  }
-  spec {
-    rule {
-      http {
-        path {
-          path = "/*"
-          backend {
-            service {
-              name = kubernetes_service_v1.default-1.metadata.0.name
-              port {
-                number = 80
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
