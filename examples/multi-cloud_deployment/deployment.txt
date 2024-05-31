@@ -1,7 +1,7 @@
 Deployment model{
     applications {
         ->  name: dpp_app,
-            image: "image/latest",
+            image: "dpp/app:latest",
             port: 8000,
             cpu_required: 10m, 
             memory_required: 100Mi, 
@@ -36,7 +36,7 @@ Deployment model{
 
     clusters {
         ->  public_cluster
-            name: gcp_cluster,
+            name: cluster_a,
             number_of_nodes: 3,
             provider: google,
             config_file: "config_google.conf",
@@ -46,7 +46,7 @@ Deployment model{
             net_config: True
         
         ->  public_cluster
-            name: aws_cluster,
+            name: cluster_b,
             number_of_nodes: 3,
             provider: aws,
             config_file: "config_aws.conf",
