@@ -5,7 +5,7 @@ Deployment model{
             port: 8000,
             cpu_required: 10m, 
             memory_required: 100Mi, 
-            domain_model: "library_model"
+            domain_model: "dpp_model"
     }
     
     services {
