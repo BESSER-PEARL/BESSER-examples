@@ -48,7 +48,7 @@ resource "google_compute_subnetwork" "default" {
 }
 
 resource "google_container_cluster" "default" {
-    name = "cluster1"
+    name = "cluster_a"
   
     location                 = "us-east1"
     enable_autopilot         = true

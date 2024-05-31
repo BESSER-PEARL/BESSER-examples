@@ -36,8 +36,8 @@ class LifecycleStage(Base):
     
     __tablename__ = "lifecyclestage"
     id: Mapped[int] = mapped_column(primary_key=True)
-    start: Mapped[date] = mapped_column(Date)
     end: Mapped[date] = mapped_column(Date)
+    start: Mapped[date] = mapped_column(Date)
     type_spec: Mapped[str]
     __mapper_args__ = {
         "polymorphic_identity": "lifecyclestage",
@@ -86,16 +86,16 @@ class ProductPassport(Base):
     
     __tablename__ = "productpassport"
     id: Mapped[int] = mapped_column(primary_key=True)
-    product_name: Mapped[str] = mapped_column(String(100))
     brand: Mapped[str] = mapped_column(String(100))
     code: Mapped[str] = mapped_column(String(100))
+    product_name: Mapped[str] = mapped_column(String(100))
 
 class Reparation(Base):
     
     __tablename__ = "reparation"
     id: Mapped[int] = mapped_column(primary_key=True)
-    date_set: Mapped[date] = mapped_column(Date)
     description: Mapped[str] = mapped_column(String(100))
+    date_set: Mapped[date] = mapped_column(Date)
 
 
 #--- Foreign keys and relationships of the lifecyclestage table

@@ -29,7 +29,7 @@ resource "aws_iam_role" "nodes" {
   }
   
   resource "aws_eks_node_group" "private-nodes" {
-    cluster_name    = aws_eks_cluster.demo.name
+    cluster_name    = aws_eks_cluster.cluster_b.name
     node_group_name = "private-nodes"
     node_role_arn   = aws_iam_role.nodes.arn
   
@@ -64,5 +64,5 @@ resource "aws_iam_role" "nodes" {
   }
 
 output "load_balancer_ip" {
-  value = kubernetes_service_v1.default-1.status.0.load_balancer.0.ingress.0.ip
+  value = kubernetes_service_v1.default-1.status.0.load_balancer.0.ingress.0.hostname
 }

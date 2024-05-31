@@ -32,9 +32,9 @@ provider "kubernetes" {
 
 resource "kubernetes_deployment_v1" "default-" {
   metadata {
-    name = "deployment1" 
+    name = "dpp_deployment" 
     labels = {
-      app = "app1"       }
+      app = "dpp_app"       }
   }
 
   spec {
@@ -42,19 +42,19 @@ resource "kubernetes_deployment_v1" "default-" {
 
     selector {
       match_labels = {
-        app = "app1"         }
+        app = "dpp_app"         }
     }
 
     template {
       metadata {
         labels = {
-          app = "app1"           }
+          app = "dpp_app"           }
       }
 
       spec {
         container {
-          image = "image/latest"
-          name  = "container1"
+          image = "dpp/app:latest"
+          name  = "dpp_container"
 
           resources {
             limits = {
@@ -75,12 +75,12 @@ depends_on = [google_project_service.compute]
 
 resource "kubernetes_service_v1" "default-1" {
   metadata {
-    name = "service1"
+    name = "dpp_service"
   }
 
   spec {
     selector = {
-      app = "app1"
+      app = "dpp_app"
     }
     port {
       port        = 80

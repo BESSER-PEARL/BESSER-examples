@@ -1,5 +1,5 @@
-resource "aws_iam_role" "demo" {
-    name = "eks-cluster-demo"
+resource "aws_iam_role" "cluster_b" {
+    name = "eks-cluster-cluster_b"
   
     assume_role_policy = <<POLICY
 {
@@ -17,21 +17,21 @@ resource "aws_iam_role" "demo" {
   POLICY
 }
   
-  resource "aws_iam_role_policy_attachment" "demo-AmazonEKSClusterPolicy" {
+  resource "aws_iam_role_policy_attachment" "cluster_b-AmazonEKSClusterPolicy" {
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-    role       = aws_iam_role.demo.name
+    role       = aws_iam_role.cluster_b.name
   }
   
   variable "cluster_name" {
-    default = "cluster2"
+    default = "cluster_b"
     type = string
     description = "AWS EKS CLuster Name"
     nullable = false
   }
   
-  resource "aws_eks_cluster" "demo" {
+  resource "aws_eks_cluster" "cluster_b" {
     name     = var.cluster_name
-    role_arn = aws_iam_role.demo.arn
+    role_arn = aws_iam_role.cluster_b.arn
   
     vpc_config {
       subnet_ids = [
@@ -42,24 +42,24 @@ resource "aws_iam_role" "demo" {
       ]
     }
   
-    depends_on = [aws_iam_role_policy_attachment.demo-AmazonEKSClusterPolicy]
+    depends_on = [aws_iam_role_policy_attachment.cluster_b-AmazonEKSClusterPolicy]
   }
   
   data "aws_eks_cluster_auth" "cluster" {
-    name = aws_eks_cluster.demo.id
+    name = aws_eks_cluster.cluster_b.id
   }
   provider "kubernetes" {
-    host                   = aws_eks_cluster.demo.endpoint
-    cluster_ca_certificate = base64decode(aws_eks_cluster.demo.certificate_authority.0.data)
+    host                   = aws_eks_cluster.cluster_b.endpoint
+    cluster_ca_certificate = base64decode(aws_eks_cluster.cluster_b.certificate_authority.0.data)
     token                  = data.aws_eks_cluster_auth.cluster.token
   }
   
 resource "kubernetes_deployment_v1" "default-" {
   wait_for_rollout = true
     metadata {
-       name = "deployment1" 
+       name = "dpp_deployment" 
       labels = {
-        app = "app1"
+        app = "dpp_app"
       }
     }
     timeouts {
@@ -72,19 +72,19 @@ resource "kubernetes_deployment_v1" "default-" {
       replicas = 2
       selector {
         match_labels = {
-          app = "app1"
+          app = "dpp_app"
         }
       }
       template {
         metadata {
           labels = {
-            app = "app1"
+            app = "dpp_app"
           }
         }
         spec {
           container {
-            image = "image/latest"
-            name  = "container1"
+            image = "dpp/app:latest"
+            name  = "dpp_container"
             resources {
               limits = {
                 cpu    = "500"
@@ -104,12 +104,12 @@ resource "kubernetes_deployment_v1" "default-" {
 
 resource "kubernetes_service_v1" "default-1" {
   metadata {
-    name = "service1"
+    name = "dpp_service"
 #    namespace = kubernetes_namespace.app_namespace.metadata[0].name
   }
   spec {
     selector = {
-      app = "app1"
+      app = "dpp_app"
     }
     port {
       protocol    = "TCP"

@@ -62,7 +62,7 @@ async def get_lifecyclestage(lifecyclestage_id: int, database: Session = Depends
 async def create_lifecyclestage(lifecyclestage_data: LifecycleStageCreate, database: Session = Depends(get_db)) -> LifecycleStage:
 
 
-    db_lifecyclestage = LifecycleStage(start=lifecyclestage_data.start, end=lifecyclestage_data.end)
+    db_lifecyclestage = LifecycleStage(end=lifecyclestage_data.end, start=lifecyclestage_data.start)
 
     database.add(db_lifecyclestage)
     database.commit()
@@ -97,8 +97,8 @@ async def update_lifecyclestage(lifecyclestage_id: int, lifecyclestage_data: Lif
     if db_lifecyclestage is None:
         raise HTTPException(status_code=404, detail="LifecycleStage not found")
 
-    setattr(db_lifecyclestage, 'start', lifecyclestage_data.start)
     setattr(db_lifecyclestage, 'end', lifecyclestage_data.end)
+    setattr(db_lifecyclestage, 'start', lifecyclestage_data.start)
     existing_rawmaterial_ids = [assoc.rawmaterial_id for assoc in database.execute(
         composition.select().where(composition.c.lifecyclestage_id == db_lifecyclestage.id))]
     
@@ -176,7 +176,7 @@ async def get_design(design_id: int, database: Session = Depends(get_db)) -> Des
 async def create_design(design_data: DesignCreate, database: Session = Depends(get_db)) -> Design:
 
 
-    db_design = Design(start=design_data.start, end=design_data.end)
+    db_design = Design(end=design_data.end, start=design_data.start)
 
     database.add(db_design)
     database.commit()
@@ -238,7 +238,7 @@ async def get_use(use_id: int, database: Session = Depends(get_db)) -> Use:
 async def create_use(use_data: UseCreate, database: Session = Depends(get_db)) -> Use:
 
 
-    db_use = Use(start=use_data.start, end=use_data.end)
+    db_use = Use(end=use_data.end, start=use_data.start)
 
     database.add(db_use)
     database.commit()
@@ -300,7 +300,7 @@ async def get_manufacture(manufacture_id: int, database: Session = Depends(get_d
 async def create_manufacture(manufacture_data: ManufactureCreate, database: Session = Depends(get_db)) -> Manufacture:
 
 
-    db_manufacture = Manufacture(start=manufacture_data.start, end=manufacture_data.end)
+    db_manufacture = Manufacture(end=manufacture_data.end, start=manufacture_data.start)
 
     database.add(db_manufacture)
     database.commit()
@@ -362,7 +362,7 @@ async def get_distribution(distribution_id: int, database: Session = Depends(get
 async def create_distribution(distribution_data: DistributionCreate, database: Session = Depends(get_db)) -> Distribution:
 
 
-    db_distribution = Distribution(start=distribution_data.start, end=distribution_data.end)
+    db_distribution = Distribution(end=distribution_data.end, start=distribution_data.start)
 
     database.add(db_distribution)
     database.commit()
@@ -514,7 +514,7 @@ async def get_productpassport(productpassport_id: int, database: Session = Depen
 async def create_productpassport(productpassport_data: ProductPassportCreate, database: Session = Depends(get_db)) -> ProductPassport:
 
 
-    db_productpassport = ProductPassport(product_name=productpassport_data.product_name, brand=productpassport_data.brand, code=productpassport_data.code)
+    db_productpassport = ProductPassport(brand=productpassport_data.brand, code=productpassport_data.code, product_name=productpassport_data.product_name)
 
     database.add(db_productpassport)
     database.commit()
@@ -540,9 +540,9 @@ async def update_productpassport(productpassport_id: int, productpassport_data: 
     if db_productpassport is None:
         raise HTTPException(status_code=404, detail="ProductPassport not found")
 
-    setattr(db_productpassport, 'product_name', productpassport_data.product_name)
     setattr(db_productpassport, 'brand', productpassport_data.brand)
     setattr(db_productpassport, 'code', productpassport_data.code)
+    setattr(db_productpassport, 'product_name', productpassport_data.product_name)
     existing_lifecyclestage_ids = [assoc.lifecyclestage_id for assoc in database.execute(
         stage.select().where(stage.c.productpassport_id == db_productpassport.id))]
     
@@ -610,7 +610,7 @@ async def create_reparation(reparation_data: ReparationCreate, database: Session
     else:
         raise HTTPException(status_code=400, detail="Use ID is required")
 
-    db_reparation = Reparation(date_set=reparation_data.date_set, description=reparation_data.description, use_id=reparation_data.use_id)
+    db_reparation = Reparation(description=reparation_data.description, date_set=reparation_data.date_set, use_id=reparation_data.use_id)
 
     database.add(db_reparation)
     database.commit()
@@ -627,8 +627,8 @@ async def update_reparation(reparation_id: int, reparation_data: ReparationCreat
     if db_reparation is None:
         raise HTTPException(status_code=404, detail="Reparation not found")
 
-    setattr(db_reparation, 'date_set', reparation_data.date_set)
     setattr(db_reparation, 'description', reparation_data.description)
+    setattr(db_reparation, 'date_set', reparation_data.date_set)
     database.commit()
     database.refresh(db_reparation)
     return db_reparation

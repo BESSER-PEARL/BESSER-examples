@@ -9,8 +9,8 @@ from pydantic import BaseModel
 ############################################
 
 class LifecycleStageCreate(BaseModel):
-    start: date
     end: date
+    start: date
 
     rawmaterials_id: List[int]
 
@@ -54,9 +54,9 @@ class RawMaterialCreate(BaseModel):
  
 
 class ProductPassportCreate(BaseModel):
-    product_name: str
     brand: str
     code: str
+    product_name: str
 
     lifecyclestages_id: List[int]
 
@@ -65,8 +65,8 @@ class ProductPassportCreate(BaseModel):
  
 
 class ReparationCreate(BaseModel):
-    date_set: date
     description: str
+    date_set: date
 
     use_id: int
 

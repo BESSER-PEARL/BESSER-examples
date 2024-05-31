@@ -3,8 +3,8 @@ from besser.BUML.metamodel.structural import NamedElement, DomainModel, Type, Cl
         GeneralizationSet, AssociationClass 
 
 # Primitive Data Types 
-str_type = PrimitiveDataType("str")
 date_type = PrimitiveDataType("date")
+str_type = PrimitiveDataType("str")
 
 # ProductPassport class definition 
 ProductPassport_code: Property = Property(name="code", type=str_type, visibility="public")
