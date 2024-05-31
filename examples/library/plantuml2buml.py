@@ -1,9 +1,9 @@
-from BUML.notations.plantUML import plantuml_to_buml
-from BUML.metamodel.structural import DomainModel
-from generators.python_classes import Python_Generator
-from generators.django import DjangoGenerator
-from generators.sql_alchemy import SQLAlchemyGenerator
-from generators.sql import SQLGenerator
+from besser.BUML.notations.structuralPlantUML import plantuml_to_buml
+from besser.BUML.metamodel.structural import DomainModel
+from besser.generators.python_classes import Python_Generator
+from besser.generators.django import DjangoGenerator
+from besser.generators.sql_alchemy import SQLAlchemyGenerator
+from besser.generators.sql import SQLGenerator
 
 # PlantUML to B-UML model
 library_buml: DomainModel = plantuml_to_buml(plantUML_model_path='library.plantuml')
