@@ -1,6 +1,6 @@
 from besser.BUML.metamodel.structural import DomainModel
 from besser.utilities import image_to_plantuml, image_to_buml
-from besser.generators.python_classes.python_classes_generator import PythonGenerator
+from besser.generators.python_classes import PythonGenerator
 from besser.generators.django import DjangoGenerator
 from besser.generators.sql_alchemy import SQLAlchemyGenerator
 from besser.generators.sql import SQLGenerator
@@ -9,7 +9,7 @@ from besser.generators.sql import SQLGenerator
 library_model: DomainModel = image_to_buml(image_path="library_hand_draw.png", openai_token="xxxxx")
 
 # Code Generation
-python_model = Python_Generator(model=library_model)
+python_model = PythonGenerator(model=library_model)
 python_model.generate()
 
 django = DjangoGenerator(model=library_model)

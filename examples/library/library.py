@@ -44,14 +44,14 @@ library_model : DomainModel = DomainModel(name="Library model", types={library, 
                                           associations={lib_book_association, book_author_association})
 
 # Code Generation
-python_model = PythonGenerator(model=library_model)
+python_model = PythonGenerator(model=library_model, output_dir="output/python")
 python_model.generate()
 
-django = DjangoGenerator(model=library_model)
+django = DjangoGenerator(model=library_model, output_dir="output/django")
 django.generate()
 
-sql_alchemy = SQLAlchemyGenerator(model=library_model)
+sql_alchemy = SQLAlchemyGenerator(model=library_model, output_dir="output/sql_alchemy")
 sql_alchemy.generate()
 
-sql = SQLGenerator(model=library_model)
+sql = SQLGenerator(model=library_model, output_dir="output/sql")
 sql.generate()
