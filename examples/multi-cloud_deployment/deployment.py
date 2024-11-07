@@ -15,5 +15,5 @@ backend_generator = BackendGenerator(model=dpp_buml, docker_image=True, docker_c
 backend_generator.generate()
 
 # Terraform code generation
-terraform_generator = TerraformGenerator(deployment_model=deployment_model)
+terraform_generator = TerraformGenerator(deployment_model=deployment_model,output_dir='output')
 terraform_generator.generate()
