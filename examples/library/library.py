@@ -40,14 +40,14 @@ writed_by: Property = Property(name="writedBy", type=author, multiplicity=Multip
 book_author_association: BinaryAssociation = BinaryAssociation(name="book_author_assoc", ends={writed_by, publishes})
 
 # Domain model definition
-library_model : DomainModel = DomainModel(name="Library model", types={library, book, author}, 
+library_model : DomainModel = DomainModel(name="Library_model", types={library, book, author}, 
                                           associations={lib_book_association, book_author_association})
 
 # Code Generation
 python_model = PythonGenerator(model=library_model, output_dir="output/python")
 python_model.generate()
 
-django = DjangoGenerator(model=library_model, output_dir="output/django")
+django = DjangoGenerator(model=library_model, project_name="Project_Name", app_name="App_Name", output_dir="output/django")
 django.generate()
 
 sql_alchemy = SQLAlchemyGenerator(model=library_model, output_dir="output/sql_alchemy")

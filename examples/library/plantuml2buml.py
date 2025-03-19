@@ -6,13 +6,13 @@ from besser.generators.sql_alchemy import SQLAlchemyGenerator
 from besser.generators.sql import SQLGenerator
 
 # PlantUML to B-UML model
-library_buml: DomainModel = plantuml_to_buml(plantUML_model_path='library.plantuml')
+library_buml: DomainModel = plantuml_to_buml(plantUML_model_path='library.plantuml', buml_file_path='output/buml_library.py')
 
 # Code Generation
 python_model = PythonGenerator(model=library_buml, output_dir="output/python")
 python_model.generate()
 
-django = DjangoGenerator(model=library_buml, output_dir="output/django")
+django = DjangoGenerator(model=library_buml, project_name="Project_Name", app_name="App_Name", output_dir="output/django")
 django.generate()
 
 sql_alchemy = SQLAlchemyGenerator(model=library_buml, output_dir="output/sql_alchemy")
