@@ -18,7 +18,7 @@ python dpp.py
 
 The generated code for the Django web application will be stored in the `dpp_project` folder.
 
-Now you can deploy your Django application and using the generated code. Below is the admin panel of the Django web application generated. The steps to run the web application are detailed in the [BESSER documentation](https://besser.readthedocs.io/en/latest/generators/django.html).
+Now you can deploy your Django application using the generated code. Below is the admin panel of the Django web application generated. The steps to run the web application are detailed in the [BESSER documentation](https://besser.readthedocs.io/en/latest/generators/django.html).
 
 <p align="center">
 <img src="/examples/dpp/django.png" alt="Django App" style="height: 70%; width:70%;"/>
