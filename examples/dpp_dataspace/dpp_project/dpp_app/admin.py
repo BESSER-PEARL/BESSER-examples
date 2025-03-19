@@ -1,0 +1,23 @@
+from django.contrib import admin
+from dpp_app.models import *
+
+admin.site.register(LifecycleStage)
+admin.site.register(DiStringTypeibution)
+admin.site.register(RecycledMaterial)
+admin.site.register(ProductPassport)
+admin.site.register(Metric)
+admin.site.register(Use)
+admin.site.register(Collect)
+admin.site.register(Recycle)
+admin.site.register(Guideline)
+admin.site.register(Person)
+admin.site.register(Reparation)
+admin.site.register(MaterialUse)
+admin.site.register(Design)
+admin.site.register(Chemical)
+admin.site.register(Company)
+admin.site.register(Material)
+admin.site.register(DataCarrier)
+admin.site.register(Hazard)
+admin.site.register(Parameter)
+admin.site.register(Manufacture)

@@ -4,65 +4,61 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # Class definition
-ex:MaterialUse rdf:type rdfs:Class .
-
 ex:Company rdf:type rdfs:Class .
 
-ex:Material rdf:type rdfs:Class .
-
-ex:DataCarrier rdf:type rdfs:Class .
-
-ex:Parameter rdf:type rdfs:Class .
-
-ex:Metric rdf:type rdfs:Class .
-
-ex:LifecycleStage rdf:type rdfs:Class .
+ex:Reparation rdf:type rdfs:Class .
 
 ex:Person rdf:type rdfs:Class .
 
-ex:Design rdf:type rdfs:Class ;
-          rdfs:subClassOf ex:LifecycleStage .
-
-ex:ProductPassport rdf:type rdfs:Class .
-
-ex:Chemical rdf:type rdfs:Class .
+ex:LifecycleStage rdf:type rdfs:Class .
 
 ex:Manufacture rdf:type rdfs:Class ;
-          rdfs:subClassOf ex:LifecycleStage .
-
-ex:Hazard rdf:type rdfs:Class .
-
-ex:Distribution rdf:type rdfs:Class ;
-          rdfs:subClassOf ex:LifecycleStage .
-
-ex:Use rdf:type rdfs:Class ;
           rdfs:subClassOf ex:LifecycleStage .
 
 ex:Collect rdf:type rdfs:Class ;
           rdfs:subClassOf ex:LifecycleStage .
 
-ex:RecycledMaterial rdf:type rdfs:Class .
+ex:Use rdf:type rdfs:Class ;
+          rdfs:subClassOf ex:LifecycleStage .
+
+ex:Design rdf:type rdfs:Class ;
+          rdfs:subClassOf ex:LifecycleStage .
+
+ex:DiStringTypeibution rdf:type rdfs:Class ;
+          rdfs:subClassOf ex:LifecycleStage .
 
 ex:Recycle rdf:type rdfs:Class ;
           rdfs:subClassOf ex:LifecycleStage .
 
-ex:Reparation rdf:type rdfs:Class .
+ex:Metric rdf:type rdfs:Class .
+
+ex:Parameter rdf:type rdfs:Class .
+
+ex:DataCarrier rdf:type rdfs:Class .
+
+ex:Material rdf:type rdfs:Class .
+
+ex:MaterialUse rdf:type rdfs:Class .
 
 ex:Guideline rdf:type rdfs:Class .
 
+ex:RecycledMaterial rdf:type rdfs:Class .
+
+ex:Hazard rdf:type rdfs:Class .
+
+ex:Chemical rdf:type rdfs:Class .
+
+ex:ProductPassport rdf:type rdfs:Class .
+
 
 # Property definition
-ex:quantity rdf:type rdf:Property ;
-        rdfs:domain ex:MaterialUse ;
-        rdfs:range xsd:integer .
+ex:address rdf:type rdf:Property ;
+        rdfs:domain ex:Company ;
+        rdfs:range xsd:string .
 
-ex:unit rdf:type rdf:Property ;
-        rdfs:domain ex:MaterialUse ;
-        rdfs:range xsd:integer .
-
-ex:is_direct rdf:type rdf:Property ;
-        rdfs:domain ex:MaterialUse ;
-        rdfs:range xsd:boolean .
+ex:country rdf:type rdf:Property ;
+        rdfs:domain ex:Company ;
+        rdfs:range xsd:string .
 
 ex:postal_code rdf:type rdf:Property ;
         rdfs:domain ex:Company ;
@@ -76,60 +72,16 @@ ex:name rdf:type rdf:Property ;
         rdfs:domain ex:Company ;
         rdfs:range xsd:string .
 
-ex:address rdf:type rdf:Property ;
-        rdfs:domain ex:Company ;
-        rdfs:range xsd:string .
-
-ex:country rdf:type rdf:Property ;
-        rdfs:domain ex:Company ;
-        rdfs:range xsd:string .
-
-ex:toxic rdf:type rdf:Property ;
-        rdfs:domain ex:Material ;
-        rdfs:range xsd:string .
-
-ex:source rdf:type rdf:Property ;
-        rdfs:domain ex:Material ;
-        rdfs:range xsd:Source .
-
-ex:name rdf:type rdf:Property ;
-        rdfs:domain ex:Material ;
-        rdfs:range xsd:string .
-
-ex:code rdf:type rdf:Property ;
-        rdfs:domain ex:DataCarrier ;
-        rdfs:range xsd:string .
-
-ex:technology rdf:type rdf:Property ;
-        rdfs:domain ex:DataCarrier ;
-        rdfs:range xsd:Carrier .
-
-ex:value rdf:type rdf:Property ;
-        rdfs:domain ex:Parameter ;
-        rdfs:range xsd:integer .
-
-ex:name rdf:type rdf:Property ;
-        rdfs:domain ex:Metric ;
-        rdfs:range xsd:string .
-
-ex:unit rdf:type rdf:Property ;
-        rdfs:domain ex:Metric ;
-        rdfs:range xsd:string .
-
-ex:name rdf:type rdf:Property ;
-        rdfs:domain ex:LifecycleStage ;
-        rdfs:range xsd:string .
-
-ex:start_date rdf:type rdf:Property ;
-        rdfs:domain ex:LifecycleStage ;
+ex:date rdf:type rdf:Property ;
+        rdfs:domain ex:Reparation ;
         rdfs:range xsd:dateTime .
 
-ex:end_date rdf:type rdf:Property ;
-        rdfs:domain ex:LifecycleStage ;
-        rdfs:range xsd:dateTime .
+ex:description rdf:type rdf:Property ;
+        rdfs:domain ex:Reparation ;
+        rdfs:range xsd:string .
 
-ex:function rdf:type rdf:Property ;
-        rdfs:domain ex:Person ;
+ex:name rdf:type rdf:Property ;
+        rdfs:domain ex:Reparation ;
         rdfs:range xsd:string .
 
 ex:email rdf:type rdf:Property ;
@@ -144,40 +96,20 @@ ex:telephone rdf:type rdf:Property ;
         rdfs:domain ex:Person ;
         rdfs:range xsd:integer .
 
-ex:product_code rdf:type rdf:Property ;
-        rdfs:domain ex:ProductPassport ;
+ex:function rdf:type rdf:Property ;
+        rdfs:domain ex:Person ;
         rdfs:range xsd:string .
 
-ex:brand rdf:type rdf:Property ;
-        rdfs:domain ex:ProductPassport ;
-        rdfs:range xsd:string .
+ex:end_date rdf:type rdf:Property ;
+        rdfs:domain ex:LifecycleStage ;
+        rdfs:range xsd:dateTime .
 
-ex:code rdf:type rdf:Property ;
-        rdfs:domain ex:ProductPassport ;
-        rdfs:range xsd:string .
+ex:start_date rdf:type rdf:Property ;
+        rdfs:domain ex:LifecycleStage ;
+        rdfs:range xsd:dateTime .
 
-ex:GTIN rdf:type rdf:Property ;
-        rdfs:domain ex:ProductPassport ;
-        rdfs:range xsd:string .
-
-ex:product_name rdf:type rdf:Property ;
-        rdfs:domain ex:ProductPassport ;
-        rdfs:range xsd:string .
-
-ex:disclosure rdf:type rdf:Property ;
-        rdfs:domain ex:Chemical ;
-        rdfs:range xsd:string .
-
-ex:threshold rdf:type rdf:Property ;
-        rdfs:domain ex:Chemical ;
-        rdfs:range xsd:string .
-
-ex:composition rdf:type rdf:Property ;
-        rdfs:domain ex:Chemical ;
-        rdfs:range xsd:boolean .
-
-ex:production_site rdf:type rdf:Property ;
-        rdfs:domain ex:Manufacture ;
+ex:name rdf:type rdf:Property ;
+        rdfs:domain ex:LifecycleStage ;
         rdfs:range xsd:string .
 
 ex:address rdf:type rdf:Property ;
@@ -196,53 +128,69 @@ ex:country rdf:type rdf:Property ;
         rdfs:domain ex:Manufacture ;
         rdfs:range xsd:string .
 
-ex:exeed_limit rdf:type rdf:Property ;
-        rdfs:domain ex:Hazard ;
-        rdfs:range xsd:boolean .
-
-ex:very_high rdf:type rdf:Property ;
-        rdfs:domain ex:Hazard ;
-        rdfs:range xsd:boolean .
-
-ex:crm rdf:type rdf:Property ;
-        rdfs:domain ex:Hazard ;
-        rdfs:range xsd:boolean .
-
-ex:source rdf:type rdf:Property ;
-        rdfs:domain ex:Distribution ;
+ex:production_site rdf:type rdf:Property ;
+        rdfs:domain ex:Manufacture ;
         rdfs:range xsd:string .
 
 ex:destination rdf:type rdf:Property ;
-        rdfs:domain ex:Distribution ;
+        rdfs:domain ex:DiStringTypeibution ;
         rdfs:range xsd:string .
 
-ex:posconsumer rdf:type rdf:Property ;
-        rdfs:domain ex:RecycledMaterial ;
+ex:source rdf:type rdf:Property ;
+        rdfs:domain ex:DiStringTypeibution ;
         rdfs:range xsd:string .
-
-ex:renewable rdf:type rdf:Property ;
-        rdfs:domain ex:RecycledMaterial ;
-        rdfs:range xsd:string .
-
-ex:preconsumer rdf:type rdf:Property ;
-        rdfs:domain ex:RecycledMaterial ;
-        rdfs:range xsd:string .
-
-ex:date rdf:type rdf:Property ;
-        rdfs:domain ex:Reparation ;
-        rdfs:range xsd:dateTime .
 
 ex:name rdf:type rdf:Property ;
-        rdfs:domain ex:Reparation ;
+        rdfs:domain ex:Metric ;
         rdfs:range xsd:string .
 
-ex:description rdf:type rdf:Property ;
-        rdfs:domain ex:Reparation ;
+ex:unit rdf:type rdf:Property ;
+        rdfs:domain ex:Metric ;
         rdfs:range xsd:string .
+
+ex:value rdf:type rdf:Property ;
+        rdfs:domain ex:Parameter ;
+        rdfs:range xsd:integer .
+
+ex:technology rdf:type rdf:Property ;
+        rdfs:domain ex:DataCarrier ;
+        rdfs:range xsd:Carrier .
+
+ex:code rdf:type rdf:Property ;
+        rdfs:domain ex:DataCarrier ;
+        rdfs:range xsd:string .
+
+ex:toxic rdf:type rdf:Property ;
+        rdfs:domain ex:Material ;
+        rdfs:range xsd:string .
+
+ex:name rdf:type rdf:Property ;
+        rdfs:domain ex:Material ;
+        rdfs:range xsd:string .
+
+ex:source rdf:type rdf:Property ;
+        rdfs:domain ex:Material ;
+        rdfs:range xsd:Source .
+
+ex:unit rdf:type rdf:Property ;
+        rdfs:domain ex:MaterialUse ;
+        rdfs:range xsd:integer .
+
+ex:quantity rdf:type rdf:Property ;
+        rdfs:domain ex:MaterialUse ;
+        rdfs:range xsd:integer .
+
+ex:is_direct rdf:type rdf:Property ;
+        rdfs:domain ex:MaterialUse ;
+        rdfs:range xsd:boolean .
 
 ex:type rdf:type rdf:Property ;
         rdfs:domain ex:Guideline ;
         rdfs:range xsd:ManualType .
+
+ex:description rdf:type rdf:Property ;
+        rdfs:domain ex:Guideline ;
+        rdfs:range xsd:string .
 
 ex:name rdf:type rdf:Property ;
         rdfs:domain ex:Guideline ;
@@ -252,57 +200,109 @@ ex:doc rdf:type rdf:Property ;
         rdfs:domain ex:Guideline ;
         rdfs:range xsd:string .
 
-ex:description rdf:type rdf:Property ;
-        rdfs:domain ex:Guideline ;
+ex:renewable rdf:type rdf:Property ;
+        rdfs:domain ex:RecycledMaterial ;
+        rdfs:range xsd:string .
+
+ex:posconsumer rdf:type rdf:Property ;
+        rdfs:domain ex:RecycledMaterial ;
+        rdfs:range xsd:string .
+
+ex:preconsumer rdf:type rdf:Property ;
+        rdfs:domain ex:RecycledMaterial ;
+        rdfs:range xsd:string .
+
+ex:exeed_limit rdf:type rdf:Property ;
+        rdfs:domain ex:Hazard ;
+        rdfs:range xsd:boolean .
+
+ex:crm rdf:type rdf:Property ;
+        rdfs:domain ex:Hazard ;
+        rdfs:range xsd:boolean .
+
+ex:very_high rdf:type rdf:Property ;
+        rdfs:domain ex:Hazard ;
+        rdfs:range xsd:boolean .
+
+ex:disclosure rdf:type rdf:Property ;
+        rdfs:domain ex:Chemical ;
+        rdfs:range xsd:string .
+
+ex:threshold rdf:type rdf:Property ;
+        rdfs:domain ex:Chemical ;
+        rdfs:range xsd:string .
+
+ex:composition rdf:type rdf:Property ;
+        rdfs:domain ex:Chemical ;
+        rdfs:range xsd:boolean .
+
+ex:product_name rdf:type rdf:Property ;
+        rdfs:domain ex:ProductPassport ;
+        rdfs:range xsd:string .
+
+ex:GTIN rdf:type rdf:Property ;
+        rdfs:domain ex:ProductPassport ;
+        rdfs:range xsd:string .
+
+ex:brand rdf:type rdf:Property ;
+        rdfs:domain ex:ProductPassport ;
+        rdfs:range xsd:string .
+
+ex:code rdf:type rdf:Property ;
+        rdfs:domain ex:ProductPassport ;
+        rdfs:range xsd:string .
+
+ex:product_code rdf:type rdf:Property ;
+        rdfs:domain ex:ProductPassport ;
         rdfs:range xsd:string .
 
 
 # Relationship Definition
+ex:rel_lifecycle_person rdf:type rdf:Property ;
+    rdfs:domain ex:LifecycleStage ;
+    rdfs:range ex:Person .
 ex:rel_parameter_metric rdf:type rdf:Property ;
     rdfs:domain ex:Parameter ;
     rdfs:range ex:Metric .
-ex:rel_product_hazard rdf:type rdf:Property ;
-    rdfs:domain ex:ProductPassport ;
-    rdfs:range ex:Hazard .
-ex:rel_person_company rdf:type rdf:Property ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Company .
 ex:rel_material_raw rdf:type rdf:Property ;
     rdfs:domain ex:MaterialUse ;
     rdfs:range ex:Material .
 ex:rel_use_reparation rdf:type rdf:Property ;
     rdfs:domain ex:Reparation ;
     rdfs:range ex:Use .
+ex:rel_material_stage rdf:type rdf:Property ;
+    rdfs:domain ex:MaterialUse ;
+    rdfs:range ex:LifecycleStage .
+ex:rel_product_chemical rdf:type rdf:Property ;
+    rdfs:domain ex:ProductPassport ;
+    rdfs:range ex:Chemical .
+ex:rel_reparation_material rdf:type rdf:Property ;
+    rdfs:domain ex:MaterialUse ;
+    rdfs:range ex:Reparation .
 ex:rel_product_recycled rdf:type rdf:Property ;
     rdfs:domain ex:ProductPassport ;
     rdfs:range ex:RecycledMaterial .
 ex:rel_lifecycle_parameter rdf:type rdf:Property ;
     rdfs:domain ex:Parameter ;
     rdfs:range ex:LifecycleStage .
-ex:rel_product_carrier rdf:type rdf:Property ;
-    rdfs:domain ex:DataCarrier ;
-    rdfs:range ex:ProductPassport .
-ex:rel_reparation_material rdf:type rdf:Property ;
-    rdfs:domain ex:MaterialUse ;
-    rdfs:range ex:Reparation .
-ex:rel_product_chemical rdf:type rdf:Property ;
+ex:rel_product_hazard rdf:type rdf:Property ;
     rdfs:domain ex:ProductPassport ;
-    rdfs:range ex:Chemical .
-ex:rel_lifecycle_person rdf:type rdf:Property ;
-    rdfs:domain ex:LifecycleStage ;
-    rdfs:range ex:Person .
-ex:rel_product_lifecycle rdf:type rdf:Property ;
-    rdfs:domain ex:LifecycleStage ;
-    rdfs:range ex:ProductPassport .
+    rdfs:range ex:Hazard .
      
 ex:rel_manufacture_company rdf:type rdf:Property ;
     rdfs:domain ex:LifecycleStage ;
     rdfs:range ex:Company .
-ex:rel_material_stage rdf:type rdf:Property ;
-    rdfs:domain ex:MaterialUse ;
-    rdfs:range ex:LifecycleStage .
+ex:rel_person_company rdf:type rdf:Property ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Company .
+ex:rel_product_carrier rdf:type rdf:Property ;
+    rdfs:domain ex:DataCarrier ;
+    rdfs:range ex:ProductPassport .
+ex:rel_product_lifecycle rdf:type rdf:Property ;
+    rdfs:domain ex:LifecycleStage ;
+    rdfs:range ex:ProductPassport .
 
 # Enumeration definition
-ex:ManualType rdf:type rdfs:Class .
-ex:Source rdf:type rdfs:Class .
 ex:Carrier rdf:type rdfs:Class .
+ex:Source rdf:type rdfs:Class .
+ex:ManualType rdf:type rdfs:Class .

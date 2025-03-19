@@ -211,7 +211,7 @@ dpp_domain: DomainModel = DomainModel(name="Digital_Product_Passport",
                                       )
 
 # Django code generation
-django_generator: DjangoGenerator = DjangoGenerator(model=dpp_domain, project_name="Project_Name", app_name="App_Name", output_dir="django_code")
+django_generator: DjangoGenerator = DjangoGenerator(model=dpp_domain, project_name="dpp_project", app_name="dpp_app")
 django_generator.generate()
 
 # RDF vocabulary generation
