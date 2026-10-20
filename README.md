@@ -1,5 +1,7 @@
 # BESSER Examples
 
+> ⭐ **Part of [BESSER](https://github.com/BESSER-PEARL/BESSER)**, the open-source low-code platform that turns models into working apps. If this project is useful to you, please [star the main repo](https://github.com/BESSER-PEARL/BESSER) too.
+
 Welcome to the [BESSER](https://github.com/BESSER-PEARL/BESSER) examples repository! This collection shows a variety of scenarios 
 implemented with BESSER, our low-modeling low-code open-source platform. These examples show the different ways to create a model 
 in BESSER and the use of the different code generators. Feel free to explore these examples to gain insights into building and 
